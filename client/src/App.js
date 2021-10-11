@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
-import {Router, NavLink, Link} from 'react-router-dom';
-import { Home } from './components/Home';
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Home from './containers/Home.js';
+import NavBar from './components/NavBar';
+
 
 function App() {
   return (
@@ -10,7 +12,10 @@ function App() {
       <header className="App-header">
         SmashSite
       </header>
-      <NavLink path="/" component={Home}>Home</NavLink>
+      <NavBar />
+      <Switch>
+        <Route exact path='/' component={Home} />
+      </Switch>
     </div>
   );
 }
